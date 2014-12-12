@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Reseña 3"
+        android:id="@+id/tvReviewid"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff240d61" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="khhbjk gihvgumh kut ktc  vmgv mvm hgv hmvm"
+        android:id="@+id/tvReviewContent"
+        android:layout_below="@+id/tvReviewid"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:enabled="true"
+        android:textColor="#ff5581ff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="by Test"
+        android:id="@+id/tvReviewUsername"
+        android:layout_toEndOf="@+id/tvReviewid"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvReviewContent"
+        android:layout_alignParentStart="true"
+        android:textAlignment="gravity"
+        android:textColor="#ffff6910" />
+</RelativeLayout>

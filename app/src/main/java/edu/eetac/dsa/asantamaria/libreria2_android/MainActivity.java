@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
         bAuthor = (Button)findViewById(R.id.bAuthor);
         bTitle = (Button)findViewById(R.id.bTitle);
 
-        //Captura de text
+        //Captura de text 1/2
         final EditText searchtext = (EditText) findViewById(R.id.etSearch);
 
 
@@ -62,6 +62,7 @@ public class MainActivity extends Activity {
         bAuthor.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                //Cap text 2/2
                 String search=searchtext.getText().toString();
                 System.out.println(url+"books?length=800&author="+search);
 
@@ -74,10 +75,10 @@ public class MainActivity extends Activity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
                         Toast.makeText(getApplicationContext(), bookList.get(position).getTitle(), Toast.LENGTH_LONG).show();
-                        
+
                         //Pasar a otra actividad
                         Intent intent=new Intent(MainActivity.this, BookActivity.class );
-                        intent.putExtra("",bookList.get(position));
+                        intent.putExtra("book",bookList.get(position));
                         startActivity(intent);
 
                     }

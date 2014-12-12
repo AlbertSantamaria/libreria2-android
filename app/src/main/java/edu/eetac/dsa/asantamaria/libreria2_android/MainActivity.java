@@ -19,8 +19,11 @@ import android.content.Intent;
 import android.net.ParseException;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -28,9 +31,79 @@ import android.widget.ListView;
 public class MainActivity extends Activity {
 
     ArrayList<Book> bookList;
-
     BookAdapter adapter;
+    String url = "http://10.0.2.2:8010/libreria-api/";
+    ListView listview;
+    EditText etSearch;
+    Button bAuthor;
+    Button bTitle;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        listview = (ListView)findViewById(R.id.list);
+        etSearch = (EditText)findViewById(R.id.etSearch);
+        bAuthor = (Button)findViewById(R.id.bAuthor);
+        bTitle = (Button)findViewById(R.id.bTitle);
+
+        //Captura de text
+        final EditText searchtext = (EditText) findViewById(R.id.etSearch);
+
+
+        bookList = new ArrayList<Book>();
+
+
+        //---------------------------------------------------------->AUTHOR PART
+        bAuthor.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String search=searchtext.getText().toString();
+                System.out.println(url+"books?length=800&author="+search);
+
+                new JSONAsyncTask().execute(url+"books?length=800&author="+search);
+                adapter = new BookAdapter(getApplicationContext(), R.layout.row, bookList);
+                listview.setAdapter(adapter);
+
+                listview.setOnItemClickListener(new OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
+                        Toast.makeText(getApplicationContext(), bookList.get(position).getTitle(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+        //---------------------------------------------------------->TITLE PART
+        bTitle.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String search=searchtext.getText().toString();
+                System.out.println(url+"books?length=800&title="+search);
+
+                //new JSONAsyncTask().execute(url+"books?length=800&title="+search);
+                //Por algun motivo no me responde bien la api a la busqueda, no es de la app
+                // sino de la api Rest pero se implementaria igual que en el caso del autor
+
+                new JSONAsyncTask().execute(url+"books?length=800&title="+search);
+                adapter = new BookAdapter(getApplicationContext(), R.layout.row, bookList);
+                listview.setAdapter(adapter);
+
+                listview.setOnItemClickListener(new OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
+                        Toast.makeText(getApplicationContext(), bookList.get(position).getTitle(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
+
+    }
+
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +126,7 @@ public class MainActivity extends Activity {
                 Toast.makeText(getApplicationContext(), bookList.get(position).getTitle(), Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }*/
 
 
     class JSONAsyncTask extends AsyncTask<String, Void, Boolean> {

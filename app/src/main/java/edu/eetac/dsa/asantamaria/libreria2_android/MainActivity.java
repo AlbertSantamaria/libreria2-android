@@ -38,6 +38,9 @@ public class MainActivity extends Activity {
     Button bAuthor;
     Button bTitle;
 
+    //final static String BOOK_DETAIL = "edu.eetac.dsa.asantamaria.libreria2_android.BOOKDETAIL";
+    // Ruta y Nombre de la activad a la cual voy a enviar la info.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +74,12 @@ public class MainActivity extends Activity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1, int position, long id) {
                         Toast.makeText(getApplicationContext(), bookList.get(position).getTitle(), Toast.LENGTH_LONG).show();
+                        
+                        //Pasar a otra actividad
+                        Intent intent=new Intent(MainActivity.this, BookActivity.class );
+                        intent.putExtra("",bookList.get(position));
+                        startActivity(intent);
+
                     }
                 });
             }

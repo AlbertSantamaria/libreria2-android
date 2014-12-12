@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:padding="4dp"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/ivImage_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvTitle_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Divina Comedia"
+                android:textColor="#166CED"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/tvAuthor_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="Dante Aligheri" />
+
+            <TextView
+                android:id="@+id/tvPublisher_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Proa"
+                android:textColor="#D64530"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:id="@+id/tvEditionNumber_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="3" />
+            <TextView
+                android:id="@+id/tvEditionDate_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="3" />
+            <TextView
+                android:id="@+id/tvLanguage_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="3" />
+            <TextView
+                android:id="@+id/tvPrintingDate_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="3" />
+
+            <TextView
+                android:id="@+id/tvBookid_d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#D64530"
+                android:text="3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="305dp"
+        android:id="@+id/reviewList"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@+id/bReview"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/linearLayout" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/bReview"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

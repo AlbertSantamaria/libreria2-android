@@ -1,10 +1,12 @@
 package edu.eetac.dsa.asantamaria.libreria2_android;
 
+import java.io.Serializable;
+
 /** RRRRRRRRRRRRRRR
  * Created by sito on 10/12/14.
  */
 
-public class Book {
+public class Book implements Serializable {
 
     private int bookid;
     private String title;
